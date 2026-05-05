@@ -64,6 +64,7 @@ class Requester
       PullRequest.new(author: _1.dig(:author, :login),
                       created_at: _1[:createdAt],
                       merged_at: _1[:mergedAt],
+                      changed_files: _1[:changedFiles],
                       **_1.slice(:additions, :deletions, :title, :url, :number))
     end)
   end
