@@ -17,25 +17,17 @@ QUERY = <<-GRAPHQL
           createdAt
           mergedAt
           changedFiles
-          comments(first: 100) {
-            nodes {
-                id
-            }
+          comments(first: 0) {
+            totalCount
           }
-          commits(first: 100) {
-            nodes {
-                id
-            }
+          commits(first: 0) {
+            totalCount
           }
-          reviewRequests(first: 100) {
-            nodes {
-                id
-            }
+          reviewRequests(first: 0) {
+            totalCount
           }
-          reviews(first: 100) {
-            nodes {
-                id
-            }
+          reviews(first: 0) {
+            totalCount
           }
         }
       }
