@@ -16,6 +16,7 @@ QUERY = <<-GRAPHQL
           number
           createdAt
           mergedAt
+          changedFiles
         }
       }
       pageInfo {

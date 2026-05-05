@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class PullRequest
-  attr_reader :additions, :deletions, :author, :title, :url, :number, :created_at, :merged_at
+  attr_reader :additions, :deletions, :changed_files, :author, :title, :url, :number, :created_at, :merged_at
 
-  def initialize(author:, additions:, created_at:, deletions:, merged_at:, number:, title:, url:)# rubocop:disableMetrics/ParameterLists
+  def initialize(author:, additions:, changed_files:, created_at:, deletions:, merged_at:, number:, title:, url:)# rubocop:disableMetrics/ParameterLists
     @author = author
     @created_at = Time.parse(created_at)
     @merged_at = Time.parse(merged_at)
+    @changed_files = changed_files
     @number = number
     @title = title
     @url = url
