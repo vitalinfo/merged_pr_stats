@@ -7,7 +7,7 @@ class SearchQuery
 
   def perform # rubocop:disable Metrics/AbcSize
     res = []
-    res << "org:#{params['ORGNAME']}" unless params['ORGNAME'].nil?
+    res << "org:#{params['ORGNAME']}" if !params['ORGNAME'].nil? && params['REPO'].nil?
     res << "repo:#{params['REPO']}" unless params['REPO'].nil?
     if !params['START'].nil? && !params['END'].nil?
       start_date = Time.parse(params['START'])
