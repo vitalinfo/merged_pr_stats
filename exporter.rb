@@ -2,7 +2,7 @@ require 'csv'
 
 class Exporter
   HEADER = ['Number', 'Created', 'Merged', 'Time to merge', 'Author',
-            'Additions', 'Deletions', 'Changed Files' 'Title', 'URL']
+            'Additions', 'Deletions', 'Changed Files', 'Title', 'URL']
 
   attr_reader :filename
 
