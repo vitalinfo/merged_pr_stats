@@ -65,10 +65,10 @@ class Requester
                       created_at: _1[:createdAt],
                       merged_at: _1[:mergedAt],
                       changed_files: _1[:changedFiles],
-                      comments_count: _1.dig(:comments, :nodes).size,
-                      commits_count: _1.dig(:commits, :nodes).size,
-                      pending_reviews_count: _1.dig(:reviewRequests, :nodes).size,
-                      reviews_count: _1.dig(:reviews, :nodes).size,
+                      comments_count: _1.dig(:comments, :totalCount),
+                      commits_count: _1.dig(:commits, :totalCount),
+                      pending_reviews_count: _1.dig(:reviewRequests, :totalCount),
+                      reviews_count: _1.dig(:reviews, :totalCount),
                       **_1.slice(:additions, :deletions, :title, :url, :number))
     end)
   end
@@ -84,8 +84,13 @@ class Requester
   end
 
   def response
+    count = 0
     JSON.parse(response_body, symbolize_names: true)
   rescue JSON::ParserError
+    count += 1
+
+    retry if count < 3
+
     { error: 'invalid_response' }
   end
 end
