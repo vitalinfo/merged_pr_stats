@@ -2,7 +2,8 @@ require 'csv'
 
 class Exporter
   HEADER = ['Number', 'Created', 'Merged', 'Time to merge', 'Author',
-            'Additions', 'Deletions', 'Changed Files', 'Title', 'URL']
+            'Additions', 'Deletions', 'Changed Files', 'Commits count', 'Comments count',
+            'Reviews count', 'Pending reviews count', 'Title', 'URL']
 
   attr_reader :filename
 
@@ -49,6 +50,10 @@ class Exporter
         pull_request.additions,
         pull_request.deletions,
         pull_request.changed_files,
+        pull_request.commits_count,
+        pull_request.comments_count,
+        pull_request.reviews_count,
+        pull_request.pending_reviews_count,
         pull_request.title,
         pull_request.url
       ]

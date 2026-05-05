@@ -17,6 +17,26 @@ QUERY = <<-GRAPHQL
           createdAt
           mergedAt
           changedFiles
+          comments(first: 100) {
+            nodes {
+                id
+            }
+          }
+          commits(first: 100) {
+            nodes {
+                id
+            }
+          }
+          reviewRequests(first: 100) {
+            nodes {
+                id
+            }
+          }
+          reviews(first: 100) {
+            nodes {
+                id
+            }
+          }
         }
       }
       pageInfo {

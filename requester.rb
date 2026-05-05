@@ -65,6 +65,10 @@ class Requester
                       created_at: _1[:createdAt],
                       merged_at: _1[:mergedAt],
                       changed_files: _1[:changedFiles],
+                      comments_count: _1.dig(:comments, :nodes).size,
+                      commits_count: _1.dig(:commits, :nodes).size,
+                      pending_reviews_count: _1.dig(:reviewRequests, :nodes).size,
+                      reviews_count: _1.dig(:reviews, :nodes).size,
                       **_1.slice(:additions, :deletions, :title, :url, :number))
     end)
   end
